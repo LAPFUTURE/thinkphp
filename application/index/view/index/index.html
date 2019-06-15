@@ -1,0 +1,25 @@
+<block name="style">
+	<link rel="stylesheet" type="text/css" href="__CSS__/bootstrap.min.css" />
+</block>
+<block>
+	<button id="btn" class="btn btn-success">click</button>
+	{$name}
+</block>
+<block name="script">
+	<script src="__JS__/jquery-3.4.1.min.js"></script>
+	<script>
+		let btn = document.querySelector('#btn');
+		let btnClick = () => {
+			$.ajax({
+				type: 'POST',
+				url: 'index/index/abc',
+				data: { test: 123 },
+				success: function(res) {
+					console.log(res);
+				},
+				dataType: 'json',
+			});
+		};
+		btn.addEventListener('click', btnClick);
+	</script>
+</block>
